@@ -20,7 +20,7 @@ export default function Controls() {
                 </button>
                 <button
                     className="w-1/2 rounded-full border-2 px-4 py-2 text-foreground"
-                    onClick={() => flagOnPlay("Flagged for rule violation")}
+                    onClick={() => flagOnPlay()}
                 >
                     Flag on the Play
                 </button>
