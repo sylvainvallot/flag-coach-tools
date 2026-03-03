@@ -8,9 +8,6 @@ function scaleYardLine(yard: number) {
 }
 
 function LOS({ yardLine = 5 }: { yardLine?: number } = {}) {
-    function yardToPosition(yard: number) {
-        return Math.round(yard * 100 / 50); // Map yard to percentage position on the field
-    }
     const position = scaleYardLine(10 + yardLine); // Map yardLine to percentage position on the field
 
     return (
@@ -34,7 +31,7 @@ export default function FieldDisplay() {
             </div>
 
             <div className="w-full h-52 relative border-2 rounded-sm">
-                {scenario.flagOnPlay && <FlagDisplay />}
+                {scenario.isflagOnPlay && <FlagDisplay />}
                 <LOS yardLine={scenario.yardLine} />
                 <div
                     className="absolute border-2 h-full"

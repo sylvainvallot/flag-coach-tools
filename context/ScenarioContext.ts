@@ -9,7 +9,7 @@ type Scenario = {
   yardLine: number;
   yardsToGo: number;
   objective: string;
-  flagOnPlay?: boolean;
+  isflagOnPlay?: boolean;
   flagReason?: Penalty;
 };
 
@@ -17,7 +17,7 @@ type ScenarioContextType = {
   scenario: Scenario;
   nextDown: () => void;
   generateScenario: () => void;
-  flagOnPlay: (reason: Penalty) => void;
+  flagOnPlay: () => void;
 };
 
 const ScenarioContext = createContext<ScenarioContextType | undefined>(
@@ -30,7 +30,7 @@ export function ScenarioProvider({ children }: { children: React.ReactNode }) {
     yardLine: 5,
     yardsToGo: 20,
     objective: "First Down",
-    flagOnPlay: false,
+    isflagOnPlay: false,
   });
 
   function generateScenario() {
@@ -55,13 +55,13 @@ export function ScenarioProvider({ children }: { children: React.ReactNode }) {
     const randomPenalty = getRandomPenalty();
     setScenario((prev) => {
       const nextDown = prev.down === 4 ? 1 : prev.down + 1;
-      return { ...prev, down: nextDown, flagOnPlay: Math.random() > 0.8 ? true : false, flagReason: randomPenalty };
+      return { ...prev, down: nextDown, isflagOnPlay: Math.random() > 0.8 ? true : false, flagReason: randomPenalty };
     });
   }
 
   function flagOnPlay() {
     const randomPenalty = getRandomPenalty();
-    setScenario((prev) => ({ ...prev, flagOnPlay: true, flagReason: randomPenalty }));
+    setScenario((prev) => ({ ...prev, isflagOnPlay: true, flagReason: randomPenalty }));
   }
 
   return React.createElement(
