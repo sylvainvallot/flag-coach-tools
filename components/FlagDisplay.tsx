@@ -27,9 +27,17 @@ export default function FlagDisplay() {
                         </div>
 
                         {/* Yardage */}
-                        <div className="text-xl text-yellow-300 font-bold">
-                            {scenario.flagReason.yards} YARDS
-                        </div>
+                        {scenario.flagReason.yards !== undefined && (
+                            <div className="text-xl text-yellow-300 font-bold">
+                                {scenario.flagReason.yards} YARDS
+                            </div>
+                        )}
+
+                        {scenario.flagReason.description && (
+                            <div className="text-lg">
+                                {scenario.flagReason.description}
+                            </div>
+                        )}
 
                         {/* Consequences */}
                         <div className="flex flex-col items-center gap-1 text-lg mt-2">

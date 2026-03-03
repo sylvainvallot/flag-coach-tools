@@ -3,7 +3,8 @@ export type PenaltySide = "OFFENSE" | "DEFENSE" | "REFEREE";
 export type Penalty = {
   key: string;
   label: string;
-  yards: number;
+  description?: string;
+  yards?: number;
   side: PenaltySide;
   lossOfDown?: boolean;
   automaticFirstDown?: boolean;
@@ -11,10 +12,16 @@ export type Penalty = {
 
 export const PENALTIES: Record<string, Penalty> = {
  
+  INADVERTENT_WHISTLE : {
+    key: "INADVERTENT_WHISTLE",
+    label: "Coup de sifflet intempestif",
+    description: "Remise en jeu au point de balle morte ou rejouer le down",
+    side: "REFEREE",
+  },
+
   PASS_AFTER_7_SECONDS: {
     key: "PASS_AFTER_7_SECONDS",
     label: "Passe après 7 secondes",
-    yards: 0,
     side: "OFFENSE",
     lossOfDown: true,
   },
