@@ -10,11 +10,13 @@ export default function DownCounter() {
 
     return (
         <div className="flex flex-col items-center gap-4 my-8">
-            <div className="text-8xl font-bold text-center">
+            <div className="text-9xl font-extrabold text-center tracking-tight transition-all duration-300 ease-in-ou active:scale-95">
                 {count}
-                <span className="text-2xl align-top">{downDisplay[count]}</span>
+                <span className="text-3xl align-top font-semibold tracking-normal">{downDisplay[count]}</span>
             </div>
-            <div className="text-2xl font-bold">DOWN</div>
+            <div className="text-xl font-semibold tracking-widest text-zinc-400">
+                DOWN
+            </div>
         </div>
     );
 }
