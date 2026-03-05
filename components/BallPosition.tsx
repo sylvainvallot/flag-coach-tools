@@ -12,7 +12,7 @@ export default function BallPosition() {
                     Scenario
                 </p>
 
-                <h1 className="text-6xl font-bold tracking-tight">
+                <h1 className="text-6xl font-bold tracking-tight text-white">
                     {scenario.down}<span className="text-2xl align-top">{downDisplay[scenario.down]}</span> & {scenario.yardsToGo}
                 </h1>
                 <p className="text-2xl text-zinc-200 tabular-nums uppercase tracking-widest">
